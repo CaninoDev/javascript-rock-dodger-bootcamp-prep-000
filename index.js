@@ -118,8 +118,13 @@ function createRock(x) {
 function endGame() {
   clearInterval(gameInterval)
   window.removeEventListener('keydown', moveDodger)
-  while(ROCKS[0]) {
-  ROCKS.pop()
+  /* now the question is, why doesn;t this work? What's happening at the last iteration?
+  /while(ROCKS[0]) {
+  ROCKS.remove()
+  }
+  */
+  for(var i = 0; i < ROCKS.length; i++) {
+    ROCKS[i].remove()
   }
 }
 
